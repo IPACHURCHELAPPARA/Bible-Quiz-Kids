@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#11142b" />
+  <meta name="description" content="Word Quest is a playful Bible quiz adventure for ages 5–20 with 50 questions, a 60-second timer, streaks, ranks and Bible-book progress." />
+  <title>Word Quest — Bible Quiz Adventure</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2311142b'/%3E%3Cpath d='M50 18v64M31 37h38' stroke='%23ffd166' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Word Quest home" id="brandHome">
+      <span class="brand-mark" aria-hidden="true"><span class="cross-vertical"></span><span class="cross-horizontal"></span><span class="brand-spark">✦</span></span>
+      <span class="brand-copy"><strong>WORD QUEST</strong><small>BIBLE QUIZ ADVENTURE</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-link active" data-view="home">Home</button>
+      <button class="nav-link" data-view="progress">My progress</button>
+      <button class="nav-link" data-view="leaderboard">Hall of fame</button>
+    </nav>
+    <button class="help-button" id="helpButton" aria-label="How to play" title="How to play">?</button>
+  </header>
+
+  <main id="app" class="app-shell">
+    <section id="homeView" class="view active-view">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> KNOW THE WORD. GROW IN WISDOM.</div>
+          <h1>Your Bible.<br /><span class="gradient-text">Your adventure.</span></h1>
+          <p class="hero-lede">50 questions. 60 seconds each. One amazing journey through the Bible. How far can your faith and knowledge take you?</p>
+          <div class="hero-pills"><span>✦ 3 age levels</span><span>⚡ Streak bonuses</span><span>🏆 Ranks & rewards</span></div>
+          <div class="verse-chip"><span class="verse-icon">✝</span><span>“Grow in the grace and knowledge…”<small>2 Peter 3:18</small></span></div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of an open Bible with stars">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <span class="star star-a">✦</span><span class="star star-b">✧</span><span class="star star-c">✦</span>
+          <div class="floating-badge badge-top"><span>✦</span> WISDOM + XP</div>
+          <div class="bible-art">
+            <div class="book-spine"></div><div class="book-left"><i></i><i></i><i></i><i></i></div><div class="book-right"><i></i><i></i><i></i><i></i></div>
+            <div class="cross-art">✝</div>
+          </div>
+          <div class="floating-badge badge-bottom"><span>🔥</span> KEEP YOUR STREAK</div>
+          <div class="art-platform"></div>
+        </div>
+      </div>
+
+      <section class="mode-section" aria-labelledby="modeTitle">
+        <div class="section-heading"><div><p class="section-kicker">CHOOSE YOUR PATH</p><h2 id="modeTitle">Ready to level up?</h2></div><div class="section-side-note">Every journey has <strong>50 questions</strong></div></div>
+        <div class="mode-grid">
+          <button class="mode-card mode-kids selected" data-mode="1" aria-pressed="true">
+            <span class="mode-emoji">🌱</span><span class="mode-age">AGES 5–10</span><strong>Little Lights</strong><span class="mode-description">Big Bible stories, people, places and the basics of faith.</span><span class="mode-bottom"><span class="difficulty-dots"><i></i><i></i><i></i></span><span class="mode-tag">BEGINNER</span></span>
+          </button>
+          <button class="mode-card mode-teens" data-mode="2" aria-pressed="false">
+            <span class="mode-emoji">🧭</span><span class="mode-age">AGES 11–15</span><strong>Faith Explorers</strong><span class="mode-description">Dig deeper into events, prophets, disciples and Scripture.</span><span class="mode-bottom"><span class="difficulty-dots"><i></i><i></i><i></i></span><span class="mode-tag">INTERMEDIATE</span></span>
+          </button>
+          <button class="mode-card mode-scholars" data-mode="3" aria-pressed="false">
+            <span class="mode-emoji">🦁</span><span class="mode-age">AGES 16–20</span><strong>Word Masters</strong><span class="mode-description">Tougher details, biblical connections and challenging passages.</span><span class="mode-bottom"><span class="difficulty-dots"><i></i><i></i><i></i></span><span class="mode-tag">ADVANCED</span></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="launch-panel">
+        <div class="launch-copy"><span class="launch-icon">✦</span><div><h3>Your name belongs on the leaderboard.</h3><p>Your scores and Bible-book progress are saved on this device.</p></div></div>
+        <div class="launch-actions"><label class="sr-only" for="playerName">Player name</label><input id="playerName" maxlength="20" autocomplete="nickname" placeholder="Enter your name" /><button class="primary-button" id="startButton">Start my quest <span>→</span></button></div>
+      </section>
+
+      <section class="feature-strip" aria-label="Game features">
+        <div><span class="feature-icon purple">◷</span><span><strong>60-second timer</strong><small>Think fast, choose wisely</small></span></div>
+        <div><span class="feature-icon orange">🔥</span><span><strong>Streak power</strong><small>Consecutive correct answers earn bonus points</small></span></div>
+        <div><span class="feature-icon green">▥</span><span><strong>Book-by-book insights</strong><small>Discover your strongest Bible books</small></span></div>
+        <div><span class="feature-icon gold">♛</span><span><strong>Rise in rank</strong><small>Earn a title worthy of your progress</small></span></div>
+      </section>
+      <div class="home-bottom-grid">
+        <section class="mini-panel"><div class="panel-heading"><span><span class="tiny-icon">🏅</span> YOUR BEST SO FAR</span><button class="text-button" data-view="progress">View progress →</button></div><div id="homeStats" class="home-stats"></div></section>
+        <section class="mini-panel"><div class="panel-heading"><span><span class="tiny-icon">📖</span> A JOURNEY THROUGH THE BIBLE</span><span class="muted-label">66 books</span></div><div class="book-ribbon"><span>GENESIS</span><i></i><span>PSALMS</span><i></i><span>MATTHEW</span><i></i><span>REVELATION</span></div><p class="panel-footnote">Every answer can help you discover where you shine—and what to explore next.</p></section>
+      </div>
+    </section>
+
+    <section id="quizView" class="view quiz-view" aria-live="polite">
+      <div class="quiz-topline"><button class="back-button" id="quitButton">← Leave quest</button><div class="quiz-mode-label" id="quizModeLabel">🌱 LITTLE LIGHTS</div><div class="quiz-top-right"><span class="top-streak">🔥 <strong id="topStreak">0</strong></span><span class="top-score">✦ <strong id="topScore">0</strong> XP</span></div></div>
+      <div class="quiz-progress-wrap"><div class="quiz-progress-meta"><span id="questionProgressText">QUESTION 1 OF 50</span><span id="levelLabel">LEVEL 1 · WARM-UP</span></div><div class="progress-track"><div class="progress-fill" id="quizProgressFill"></div></div></div>
+      <div class="quiz-layout">
+        <section class="question-panel">
+          <div class="question-meta"><span class="question-category" id="questionBook">GENESIS</span><span class="question-number" id="questionNumber">QUESTION 01</span></div>
+          <h2 id="questionText">Loading your Bible adventure…</h2>
+          <p class="question-prompt">Choose the best answer below.</p>
+          <div id="answersGrid" class="answers-grid"></div>
+          <div class="question-feedback hidden" id="questionFeedback" role="status"><span class="feedback-mark" id="feedbackMark">✓</span><div><strong id="feedbackTitle">Correct!</strong><p id="feedbackText"></p><small id="feedbackReference"></small></div></div>
+          <div class="question-footer"><div class="lifeline-note" id="lifelineNote">💡 One 50:50 lifeline per quest</div><div class="question-actions"><button class="lifeline-button" id="lifelineButton">½ 50:50</button><button class="primary-button next-button hidden" id="nextButton">Next question <span>→</span></button></div></div>
+        </section>
+        <aside class="quiz-sidebar">
+          <div class="timer-card"><div class="timer-orbit" id="timerOrbit"><div class="timer-inner"><span class="timer-caption">TIME LEFT</span><strong id="timerNumber">60</strong><small>SECONDS</small></div></div><p id="timerMessage">You've got this!</p></div>
+          <div class="live-stats-card"><div class="live-stat"><span class="stat-symbol purple">✦</span><div><small>TOTAL POINTS</small><strong id="sideScore">0</strong></div></div><div class="live-stat"><span class="stat-symbol orange">🔥</span><div><small>ANSWER STREAK</small><strong id="sideStreak">0 <em>in a row</em></strong></div></div><div class="live-stat"><span class="stat-symbol green">✓</span><div><small>CORRECT ANSWERS</small><strong id="sideCorrect">0 <em>/ 50</em></strong></div></div></div>
+          <div class="verse-tip-card"><span>✝ TODAY'S REMINDER</span><p>“Your word is a lamp to my feet and a light to my path.”</p><small>PSALM 119:105</small></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="resultsView" class="view results-view">
+      <div class="results-hero"><div class="confetti-orb">✦</div><p class="section-kicker">QUEST COMPLETE</p><h1 id="resultsHeading">Well done, Bible Explorer!</h1><p id="resultsSubheading">You showed up, learned, and grew. Here's how your adventure went.</p><div class="rank-badge" id="rankBadge"><span>♛</span><div><small>YOUR NEW RANK</small><strong>BIBLE EXPLORER</strong></div></div></div>
+      <div class="results-stats-grid"><div class="result-stat-card marks-card"><span class="result-icon">✦</span><small>YOUR MARKS</small><strong id="resultMarks">0<span>/50</span></strong><div class="stat-subtext" id="resultAccuracy">0% accuracy</div></div><div class="result-stat-card"><span class="result-icon">⚡</span><small>POINTS EARNED</small><strong id="resultPoints">0</strong><div class="stat-subtext">XP collected this quest</div></div><div class="result-stat-card"><span class="result-icon">🔥</span><small>BEST STREAK</small><strong id="resultStreak">0</strong><div class="stat-subtext">correct answers in a row</div></div><div class="result-stat-card"><span class="result-icon">⏱</span><small>AVG. ANSWER TIME</small><strong id="resultAverage">0s</strong><div class="stat-subtext">per question</div></div></div>
+      <div class="results-content-grid"><section class="results-panel book-results-panel"><div class="panel-heading"><span>📖 YOUR BIBLE BOOK INSIGHTS</span><span class="muted-label">THIS QUEST</span></div><p class="panel-description">See which books you know well and which ones are ready for another adventure.</p><div id="resultBookStats" class="book-stats-list"></div></section><section class="results-panel awards-panel"><div class="panel-heading"><span>🏆 BADGES & BRAGGING RIGHTS</span></div><div id="earnedBadges" class="earned-badges"></div><div class="local-rank-card"><span class="local-rank-icon">♛</span><div><small>YOUR PLACE IN THIS DEVICE'S HALL OF FAME</small><strong id="localRank">#1</strong></div></div></section></div>
+      <section class="review-panel"><div class="panel-heading"><span>🧠 LEARN FROM THE QUEST</span><button class="text-button" id="toggleReviewButton">Review answers ↓</button></div><div id="answerReview" class="answer-review hidden"></div></section>
+      <div class="results-actions"><button class="secondary-button" id="shareResultsButton">↗ Share results</button><button class="secondary-button" data-view="progress">▥ My progress</button><button class="primary-button" id="playAgainButton">Play another quest <span>→</span></button></div>
+    </section>
+
+    <section id="progressView" class="view progress-view">
+      <div class="page-heading"><div><p class="section-kicker">YOUR GROWTH JOURNEY</p><h1>Your progress, in the Word.</h1><p>Every attempt counts. Keep learning, keep growing.</p></div><span class="large-heading-icon">📈</span></div>
+      <div class="progress-summary-grid"><div class="summary-card"><small>QUESTS PLAYED</small><strong id="totalQuizzes">0</strong><span>every journey matters</span></div><div class="summary-card"><small>QUESTIONS ANSWERED</small><strong id="totalAnswered">0</strong><span>one answer at a time</span></div><div class="summary-card"><small>ALL-TIME ACCURACY</small><strong id="totalAccuracy">—</strong><span>keep sharpening your skills</span></div><div class="summary-card"><small>BEST STREAK</small><strong id="careerBestStreak">0 🔥</strong><span>consecutive correct answers</span></div></div>
+      <div class="progress-detail-grid"><section class="results-panel"><div class="panel-heading"><span>📚 BOOK-BY-BOOK MASTERY</span></div><p class="panel-description">Books are ranked by your accuracy. More answered questions make each result more meaningful.</p><div id="allBookStats" class="book-stats-list"></div></section><section class="results-panel"><div class="panel-heading"><span>🏆 YOUR TROPHY SHELF</span></div><div id="allBadges" class="earned-badges"></div><div class="panel-divider"></div><div class="panel-heading"><span>🕰 RECENT QUESTS</span></div><div id="recentQuests" class="recent-quests"></div></section></div>
+      <div class="progress-actions"><button class="secondary-button" data-view="leaderboard">View hall of fame →</button><button class="primary-button" data-view="home">Start a new quest <span>→</span></button></div>
+    </section>
+
+    <section id="leaderboardView" class="view leaderboard-view">
+      <div class="leaderboard-hero"><div class="trophy-art">🏆</div><p class="section-kicker">YOUR PERSONAL HALL OF FAME</p><h1>Every great explorer starts somewhere.</h1><p>Beat your best, climb your personal rankings, and celebrate your progress.</p><span class="local-only-label"><span></span> SAVED ON THIS DEVICE</span></div>
+      <section class="leaderboard-panel"><div class="panel-heading"><span>♛ TOP QUEST SCORES</span><span class="muted-label">TOP 10 ATTEMPTS</span></div><div id="leaderboardRows" class="leaderboard-rows"></div><p class="panel-footnote">This hall of fame is saved in this browser. It is not a shared online leaderboard.</p></section>
+      <div class="progress-actions"><button class="secondary-button" data-view="progress">▥ My progress</button><button class="primary-button" data-view="home">Challenge yourself <span>→</span></button></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-brand"><span class="footer-cross">✝</span> WORD QUEST</div><p>Made for curious minds and growing hearts. Keep seeking wisdom.</p><span>“Seek, and you will find.” · Matthew 7:7</span></footer>
+
+  <dialog id="helpDialog" class="help-dialog"><div class="dialog-top"><span class="dialog-icon">✦</span><button id="closeHelp" class="dialog-close" aria-label="Close help">×</button></div><p class="section-kicker">YOUR ADVENTURE GUIDE</p><h2>How to play Word Quest</h2><div class="help-steps"><div><b>01</b><span><strong>Choose your level</strong><small>Pick the age group that suits you: Little Lights, Faith Explorers or Word Masters.</small></span></div><div><b>02</b><span><strong>Beat the clock</strong><small>You get 60 seconds per question. Correct answers earn points, and faster answers can earn more.</small></span></div><div><b>03</b><span><strong>Build your streak</strong><small>Correct answers in a row add streak bonuses. One 50:50 lifeline can remove two wrong options.</small></span></div><div><b>04</b><span><strong>Reveal, learn, then next</strong><small>After you answer—or the timer runs out—you'll see the mark, explanation and Bible reference before the next question.</small></span></div><div><b>05</b><span><strong>Grow your rank</strong><small>Finish 50 questions to see your marks out of 50, rank, badges and book-by-book strengths.</small></span></div></div><p class="privacy-note">Your name, scores and progress stay in this browser using local storage. Clearing browser data can erase them.</p><button class="primary-button dialog-done" id="helpDone">Let's play <span>→</span></button></dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
